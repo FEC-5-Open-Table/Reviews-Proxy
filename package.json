@@ -12,6 +12,5 @@
   "dependencies": {
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
