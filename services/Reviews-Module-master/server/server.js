@@ -11,6 +11,13 @@ app.use('/restaurant/:id', express.static('./public'))
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET');
+  next();
+});
+
 app.get('/restaurant/:id/reviews', (req, res) => {
   db.pullFromDB(`SELECT * FROM Reviews WHERE rest_id IN (SELECT id FROM Restaurant WHERE id = ${req.params.id});`, (err, data) => {
     if (err) res.status(400).send('error');

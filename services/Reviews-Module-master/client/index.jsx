@@ -1,3 +1,3 @@
-import App from './components/app.jsx';
+import Reviews from './components/app.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+window.Reviews = Reviews;

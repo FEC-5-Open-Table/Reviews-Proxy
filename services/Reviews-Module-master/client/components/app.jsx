@@ -9,7 +9,7 @@ import styles from './App.css';
 
 const getIDFromURL = () => window.location.pathname.split('/')[2]
 
-class App extends React.Component {
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,7 +71,7 @@ class App extends React.Component {
   }
 
   pullDataById(id) {
-    axios.get(`/restaurant/${id}/reviews`)
+    axios.get(`http://localhost:3005/restaurant/${id}/reviews`)
       .then((res) => {
         this.setState({
           reviews: res.data.slice(0, 20),
@@ -93,7 +93,7 @@ class App extends React.Component {
   }
 
   pullRestaurantInfoById(id) {
-    axios.get(`/restaurant/${id}/info`)
+    axios.get(`http://localhost:3005/restaurant/${id}/info`)
       .then((res) => {
         this.setState({ restaurantInfo: res.data });
       })
@@ -101,7 +101,7 @@ class App extends React.Component {
   }
 
   pullKeywordsById(id) {
-    axios.get(`/restaurant/${id}/filterKeywords`)
+    axios.get(`http://localhost:3005/restaurant/${id}/filterKeywords`)
       .then((res) => {
         this.setState({ keyWords: res.data });
       })
@@ -109,7 +109,7 @@ class App extends React.Component {
   }
 
   pullMenuItemsById(id) {
-    axios.get(`/restaurant/${id}/LovedFor`)
+    axios.get(`http://localhost:3005/restaurant/${id}/LovedFor`)
       .then((res) => {
         this.setState({ lovedFor: res.data });
       })
@@ -232,4 +232,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+export default Reviews;
